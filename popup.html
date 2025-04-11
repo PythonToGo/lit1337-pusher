@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LeetCode Pusher</title>
+  <style>
+    body {
+      background: #84cdee;
+      color: #000;
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 13px;
+      width: 350px;
+      max-height: 380px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      padding: 16px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .title {
+      color: #000;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .badge {
+      background: transparent;
+      border: 1px solid #004C8D;
+      color: #004C8D;
+      padding: 4px 8px;
+      border-radius: 16px;
+      font-size: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .badge.error {
+      border-color: #ff4d4d;
+      color: #ff4d4d;
+      background-color: rgba(255, 77, 77, 0.1);
+    }
+
+    .info {
+      margin-bottom: 16px;
+    }
+
+    .repo {
+      color: #333;
+      font-size: 0.875rem;
+      margin: 4px 0;
+    }
+
+    .last-push {
+      color: #555;
+      font-size: 0.75rem;
+      margin: 4px 0;
+    }
+
+    .last-login {
+      color: #555;
+      font-size: 0.75rem;
+      margin: 4px 0;
+    }
+
+    select#repo-select {
+      width: 100%;
+      padding: 8px;
+      margin: 12px 0;
+      border: 1px solid #84cdee;
+      border-radius: 8px;
+      background-color: white;
+      color: #000;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    select#repo-select:focus {
+      outline: none;
+      border-color: #50b8e7;
+      box-shadow: 0 0 0 2px rgba(80, 184, 231, 0.2);
+    }
+
+    .button-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn i {
+      font-size: 1.1em;
+    }
+
+    .btn-primary {
+      background: #84cdee;
+      color: #000;
+      grid-column: span 2;
+    }
+
+    .btn-primary:hover {
+      background: #70b3e0;
+      transform: translateY(-1px);
+    }
+
+    .btn-error {
+      background: #ff6b6b;
+      color: #fff;
+    }
+
+    .btn-error:hover {
+      background: #ff4d4d;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #50b8e7;
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #3da8d8;
+      transform: translateY(-1px);
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      font-size: 1rem;
+      color: #000;
+      margin-top: 8px;
+    }
+
+    .loading.show {
+      display: block;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1 class="title">LeetCode Pusher</h1>
+      <div class="badge" id="status">🔒 Not logged in</div>
+    </div>
+    
+    <div class="info">
+      <p id="repo" class="repo"></p>
+      <p id="last-push" class="last-push"></p>
+      <p id="last-login" class="last-login"></p>
+    </div>
+
+    <select id="repo-select" style="display:none;">
+      <!-- Options will be populated dynamically -->
+    </select>
+
+    <div class="button-container">
+      <button id="login-btn" class="btn btn-primary">
+        <i class="fab fa-github"></i>
+        GitHub Login
+      </button>
+      
+
+      <button id="github-btn" class="btn btn-secondary">
+        <i class="fas fa-external-link-alt"></i>
+        View Repo
+      </button>
+      
+      <button id="logout-btn" class="btn btn-error">
+
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+
+      </button>
+    </div>
+
+    <div class="loading" id="loading">
+      <i class="fas fa-spinner fa-spin"></i> Loading...
+    </div>
+  </div>
+  
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

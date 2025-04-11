@@ -1,0 +1,47 @@
+{
+  "name": "LeetCode Pusher",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "identity",
+    "storage",
+    "scripting",
+    "activeTab",
+    "webNavigation"
+  ],
+  "oauth2": {
+    "client_id": "Ov23lidbbczriEkuebBd",
+    "scopes": ["repo"]
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "https://github.com/*",
+    "http://localhost:8000/*",
+    "https://lit1337.up.railway.app/*",
+    "https://lit1337-dev.up.railway.app/*",
+    "https://leetcode.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/*"],
+      "js": ["config.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["config.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "chrome-extension://*/"
+    ]
+  }
+}
