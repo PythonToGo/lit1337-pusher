@@ -1,7 +1,10 @@
 # 🚀 Pusher Chrome Extension
 
 ## 🌟 Overview
-Pusher is a Chrome extension designed to enhance and automate specific tasks within your web browser. This extension provides features such as [add feature description here].
+Pusher is a Chrome extension designed to enhance and automate specific tasks within your web browser. This extension provides features such as automatically push to GitHub.
+![pusher-loggout](https://github.com/user-attachments/assets/1c517979-bfa3-4665-b23f-67f98d07054e)
+![pusher-login](https://github.com/user-attachments/assets/63bf12b2-2e42-4ff4-92b1-ccf325c86553)
+
 
 ## 📥 Installation
 
