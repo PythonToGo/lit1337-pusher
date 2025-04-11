@@ -34,7 +34,7 @@ Pusher is a Chrome extension designed to enhance and automate specific tasks wit
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## 📧 Contact
-- For inquiries, please contact [your email address].
+- For inquiries, please contact *pythontogoplease@gmail.com* .
 
 ## 🔗 More Information
 Visit the [lit1337 repository](https://github.com/PythonToGo/lit1337) to explore the entire project, which includes the backend, the Pusher Chrome extension, and the dashboard.
